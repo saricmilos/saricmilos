@@ -1,0 +1,433 @@
+/* Modern Calculator Styles */
+:root {
+    --primary-color: #000;
+    --secondary-color: #333;
+    --accent-color: #666;
+    --light-bg: #f7f9fc;
+    --border-color: #e0e0e0;
+    --text-color: #333;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+    --button-primary: #000;
+    --button-secondary: transparent;
+}
+
+body {
+    background-color: #fff;
+}
+
+.hero {
+    background-color: var(--secondary-color);
+    background-image: linear-gradient(to right, #000, #333);
+    color: white;
+    padding: 80px 0;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* Calculator Section */
+.calculator-section {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--secondary-color);
+    text-align: center;
+    font-weight: 600;
+}
+
+.calculator-container {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.calculator-form {
+    width: 100%;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 40px;
+}
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section h3 {
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.form-section h3:after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 3px;
+    background-color: var(--primary-color);
+    bottom: 0;
+    left: 0;
+}
+
+.material-section {
+    background-color: var(--light-bg);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+    flex: 1;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: inherit;
+    transition: var(--transition);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.form-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.connection-entries {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.results-section {
+    width: 100%;
+}
+
+/* Tabs for results */
+.results-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    padding: 12px 24px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+}
+
+.tab-btn:hover {
+    color: var(--primary-color);
+}
+
+.tab-btn.active {
+    color: var(--primary-color);
+}
+
+.tab-btn.active:after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.matrix-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+    overflow-x: auto;
+}
+
+.matrix-title {
+    margin-bottom: 25px;
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.matrix-title:before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 24px;
+    background-color: var(--primary-color);
+    margin-right: 15px;
+    border-radius: 3px;
+}
+
+.matrix-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: 'SF Mono', Menlo, Monaco, Consolas, monospace;
+    font-size: 0.9rem;
+}
+
+.matrix-table td {
+    border: 1px solid var(--border-color);
+    padding: 10px 12px;
+    text-align: center;
+}
+
+.matrix-table th {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 12px 14px;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+    color: var(--secondary-color);
+}
+
+.matrix-table tr:nth-child(even) {
+    background-color: var(--light-bg);
+}
+
+/* Calculate Button */
+#calculate-btn {
+    background-color: var(--button-primary);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#calculate-btn:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#calculate-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .calculator-container {
+        flex-direction: column;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .connection-entries {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .matrix-table {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .section-title {
+        font-size: 1.7rem;
+    }
+    
+    .connection-entries {
+        grid-template-columns: 1fr;
+    }
+    
+    .tab-btn {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+/* Match button style from first index.html */
+.button-primary {
+    background-color: #000;
+    color: #fff;
+}
+
+.button-secondary {
+    background-color: transparent;
+    color: #000;
+    border: 1px solid #000;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Glassy Back to Top Button */
+.button-glassy {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #2d3748;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 40, 0.08);
+    transition: all 0.25s ease;
+}
+
+.button-glassy:hover {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 6px 16px rgba(0, 0, 40, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Placement for floating */
+.floating-top-btn {
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    z-index: 100;
+    display: none;
+}
+
+/* Updated Header Style - White Background with Black Text */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95); /* White semi-transparent background */
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Subtle bottom border */
+  }
+  
+  .logo a {
+    color: var(--text-primary); /* Black text for logo */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.125rem;
+    letter-spacing: -0.01em;
+    transition: opacity 0.2s ease;
+  }
+  
+  .nav-menu li a {
+    color: rgba(0, 0, 0, 0.8); /* Dark text for navigation items */
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 400;
+    padding: 6px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+  
+  .nav-menu li a:hover {
+    color: var(--text-primary); /* Black text on hover */
+    background-color: rgba(0, 0, 0, 0.05); /* Very light gray background on hover */
+  }
+  
+  /* Active page indicator */
+  .nav-menu li a.active {
+    color: var(--text-primary); /* Black text for active page */
+    font-weight: 500;
+  }
+  
+  /* Mobile menu toggle button - Change color to black */
+  .mobile-menu-toggle span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--text-primary); /* Black bars for hamburger icon */
+    border-radius: 1px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Update for "Remembering Dad" link in white header */
+  .nav-menu li:last-child a {
+    color: var(--text-primary);
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-menu li:last-child a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--text-primary);
+    transition: width 0.3s ease;
+  }
