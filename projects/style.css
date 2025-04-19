@@ -1,0 +1,446 @@
+/*
+  © 2025 Milos Saric. All rights reserved.
+  This CSS file is protected by copyright law and international treaties.
+  Unauthorized reproduction or redistribution is strictly prohibited.
+  Contact: milossaric@outlook.com
+*/
+
+/* Header styles */
+.page-header {
+    padding: 80px 0 40px;
+    background-color: #f9f9f9;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 36px;
+    font-weight: 500;
+}
+
+.page-subtitle {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #666;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Project section styles */
+.project-section {
+    padding: 60px 0;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.project-section:last-child {
+    border-bottom: none;
+}
+
+.project-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.project-image {
+    flex: 0 0 45%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.project-content {
+    flex: 1;
+}
+
+.project-content h3 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: 500;
+    color: #333;
+}
+
+.project-content p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Project tags */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.project-tags span {
+    background-color: #f0f0f0;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #555;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.project-tags span:hover {
+    background-color: #e0e0e0;
+}
+
+/* Call to action button */
+.practical-examples-btn {
+    display: inline-block;
+    background-color: transparent;
+    color: #333;
+    padding: 12px 24px;
+    border: 2px solid #333;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.practical-examples-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.practical-examples-btn:hover {
+    color: white;
+}
+
+.practical-examples-btn:hover::before {
+    left: 0;
+}
+
+.practical-examples-btn:active {
+    transform: scale(0.98);
+}
+
+/* Active menu indicator */
+.nav-menu a.active {
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-menu a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+    .project-container {
+        flex-direction: column;
+    }
+    
+    .project-image {
+        flex: 0 0 100%;
+    }
+    
+    .page-header {
+        padding: 60px 0 30px;
+    }
+    
+    .page-title {
+        font-size: 30px;
+    }
+    
+    .page-subtitle {
+        font-size: 16px;
+        padding: 0 20px;
+    }
+    
+    .project-section {
+        padding: 40px 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .project-tags {
+        gap: 6px;
+    }
+    
+    .project-tags span {
+        padding: 4px 10px;
+        font-size: 12px;
+    }
+    
+    .practical-examples-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    .project-content h3 {
+        font-size: 20px;
+    }
+}
+
+/* Style for multiple project buttons */
+.project-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+/* Responsive adjustments for buttons */
+@media (max-width: 600px) {
+    .project-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .project-buttons .practical-examples-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Glassy Back to Top Button */
+.button-glassy {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #2d3748;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 40, 0.08);
+    transition: all 0.25s ease;
+}
+
+.button-glassy:hover {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 6px 16px rgba(0, 0, 40, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Placement for floating */
+.floating-top-btn {
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    z-index: 100;
+    display: none;
+}
+
+/* Updated Header Style - White Background with Black Text */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95); /* White semi-transparent background */
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Subtle bottom border */
+  }
+  
+  .logo a {
+    color: var(--text-primary); /* Black text for logo */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.125rem;
+    letter-spacing: -0.01em;
+    transition: opacity 0.2s ease;
+  }
+  
+  .nav-menu li a {
+    color: rgba(0, 0, 0, 0.8); /* Dark text for navigation items */
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 400;
+    padding: 6px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+  
+  .nav-menu li a:hover {
+    color: var(--text-primary); /* Black text on hover */
+    background-color: rgba(0, 0, 0, 0.05); /* Very light gray background on hover */
+  }
+  
+  /* Active page indicator */
+  .nav-menu li a.active {
+    color: var(--text-primary); /* Black text for active page */
+    font-weight: 500;
+  }
+  
+  /* Update for "Remembering Dad" link in white header */
+  .nav-menu li:last-child a {
+    color: var(--text-primary);
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-menu li:last-child a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--text-primary);
+    transition: width 0.3s ease;
+  }
+
+  :root {
+    --apple-neutral-300: #888888; /* or whatever color you want */
+  }
+
+  /* Footer */
+.diabetes-tool-footer {
+    margin-top: 2rem;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.8125rem;
+    color: var(--apple-neutral-300);
+  }
+
+  /* Responsive design for mobile devices */
+  @media (max-width: 768px) {
+    .nav-menu {
+      position: fixed;
+      top: var(--header-height);
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      z-index: 999;
+    }
+    
+    .nav-menu.active {
+      max-height: 300px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav-menu li {
+      width: 100%;
+      text-align: center;
+    }
+    
+    .nav-menu li a {
+      display: block;
+      padding: 15px 0;
+      font-size: 1rem;
+    }
+    
+    .mobile-menu-toggle {
+      display: flex;
+    }
+    
+    /* Animation for hamburger to X */
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(2) {
+      transform: rotate(-45deg);
+    }
+  }
+  /* Mobile menu toggle button - Change color to black */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    cursor: pointer;
+  }
+  
+  .mobile-menu-toggle span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: #000; /* Black bars for hamburger icon */
+    border-radius: 1px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Responsive design for mobile devices */
+  @media (max-width: 768px) {
+    .nav-menu {
+      position: fixed;
+      top: var(--header-height);
+      left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.95); /* White background to match header */
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      z-index: 999;
+    }
+    
+    .nav-menu.active {
+      max-height: 300px;
+    }
+    
+    .nav-menu li {
+      width: 100%;
+      text-align: center;
+    }
+    
+    .nav-menu li a {
+      display: block;
+      padding: 15px 0;
+      font-size: 1rem;
+      color: #000; /* Black text for menu items */
+    }
+    
+    .mobile-menu-toggle {
+      display: flex;
+    }
+    
+    /* Animation for hamburger to X */
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(2) {
+      transform: rotate(-45deg);
+    }
+  }

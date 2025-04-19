@@ -1,0 +1,499 @@
+<!-- 
+  © 2025 Milos Saric. All rights reserved.
+  This HTML file is protected by copyright law and international treaties.
+  Unauthorized reproduction, distribution, or modification of this file
+  may result in civil and criminal penalties.
+  Contact: milossaric@outlook.com
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PFQVV6K2BN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PFQVV6K2BN');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create your home solar system | Miloš Sarić</title>
+    <meta name="description" content="Interactive solar panel system designer for residential applications">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../favicon.ico">
+    
+    <!-- CSS Links with version parameters -->
+    <link rel="stylesheet" href="../css/ResetandNormalize.css?v=11.0">
+    <link rel="stylesheet" href="../css/main.css?v=11.0">
+    <link rel="stylesheet" href="buttons.css?v=11.0">
+    <link rel="stylesheet" href="style.css?v=11.0">
+    
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+</head>
+
+<body>
+    <!-- Navigation Header -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-nav">
+                <div class="logo">
+                    <a href="../">Miloš Sarić</a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../about/">About</a></li>
+                    <li><a href="../projects/">Projects</a></li>
+                    <li><a href="../contact/">Contact</a></li>
+                    <li><a href="../rememberingdad/">Remembering Dad</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Start your solar journey today<br>// Power your home. Empower your future.</h1>
+            <p class="hero-subtitle">Plan your solar energy system and reduce your carbon footprint.</p>
+        </div>
+    </section>
+
+<!-- Navigation buttons section -->
+<section class="navigation-buttons">
+    <div class="container">
+        <div class="buttons-wrapper">
+            <button id="location-btn" class="nav-button active">System Location</button>
+            <button id="solar-panel-btn" class="nav-button">Solar Panel Selection</button>
+            <button id="battery-btn" class="nav-button">Energy Storage</button>
+            <button id="inverter-btn" class="nav-button">Converter Selection</button>
+            <button id="economic-btn" class="nav-button">Techno-Economical Analysis</button>
+        </div>
+    </div>
+</section>
+
+<!-- Location Content Section -->
+<div id="location-content" class="content-section">
+    <section class="system-location-section">
+        <div class="container">
+            <h2>System Location</h2>
+            <p>Please select the location of your home on the map below. Click on your desired location or use the search function to find specific coordinates.</p>
+            <div class="location-benefits">
+                <div class="benefit-item">
+                    <div class="benefit-icon">☀️</div>
+                    <div class="benefit-text">
+                        <h3>Solar Irradiation Data</h3>
+                        <p>Get precise solar irradiation data for your selected location</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-text">
+                        <h3>Energy Potential</h3>
+                        <p>Calculate potential energy generation based on local sunlight conditions</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📊</div>
+                    <div class="benefit-text">
+                        <h3>Statistical Analysis</h3>
+                        <p>Review seasonal variations and key metrics for your site</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map and Solar Data Section -->
+    <section class="solar-atlas-content">
+        <div class="container">
+            <div class="controls">
+                <p>Click on the map to select a location or use the search box to find a place.</p>
+                <div class="search-container">
+                    <input id="search-input" type="text" placeholder="Search for a location..." aria-label="Search for a location">
+                    <button id="search-button" class="button button-secondary">Search</button>
+                </div>
+            </div>
+            
+            <div id="map" aria-label="Interactive map for selecting location"></div>
+            
+            <div class="coordinates">
+                <p>Selected coordinates: <span id="selected-lat">--</span>, <span id="selected-lng">--</span></p>
+                <button id="get-solar-data" class="button button-secondary">Get Solar Data</button>
+                <div class="loading" id="loading-indicator">Loading solar data...</div>
+            </div>
+            
+            <div class="results" id="results-container">
+                <h2>Solar Parameters at Selected Location</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Value</th>
+                            <th>Unit</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-table">
+                        <!-- Results will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="irradiance-section" id="irradiance-section" style="display: none;">
+                <div class="container">
+                    <h2>Annual Solar Irradiance Analysis</h2>
+                    <p class="section-description">
+                        The chart below shows the monthly average solar irradiance at this location.
+                        This information is crucial for estimating energy production and designing your optimal solar system.
+                    </p>
+                    
+                    <div class="chart-container">
+                        <canvas id="irradiance-chart"></canvas>
+                    </div>
+                    
+                    <div class="irradiance-stats-container" id="irradiance-stats-container">
+                        <!-- Irradiance statistics will be populated here by JavaScript -->
+                    </div>
+                    
+                    <div class="irradiance-explanation">
+                        <h3>Understanding Solar Irradiance</h3>
+                        <p>
+                            Solar irradiance is the power per unit area received from the sun in the form of electromagnetic radiation.
+                            Key metrics include:
+                        </p>
+                        <ul>
+                            <li><strong>Global Horizontal Irradiance (GHI):</strong> Total solar radiation received on a horizontal surface</li>
+                            <li><strong>Direct Normal Irradiance (DNI):</strong> Solar radiation received directly from the sun</li>
+                            <li><strong>Diffuse Horizontal Irradiance (DHI):</strong> Solar radiation that is scattered by the atmosphere</li>
+                        </ul>
+                        <p>
+                            This chart shows the monthly average values, helping you understand seasonal variations and
+                            estimate energy production throughout the year for your specific location.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Solar Panel Selection Content -->
+<div id="solar-panel-content" class="content-section" style="display: none;">
+    <section class="solar-panel-section">
+        <div class="container">
+            <h2>Solar Panel Selection</h2>
+            <p>Select a manufacturer and solar panel model to see detailed specifications and performance data.</p>
+            
+            <!-- Manufacturer selection -->
+            <div class="manufacturer-selection">
+                <h3>Solar Panel Manufacturers</h3>
+                <div class="manufacturer-buttons">
+                    <button class="manufacturer-btn" data-manufacturer="sunpower">
+                        <img src="/images/Solarpanels/sunpower.png" alt="SunPower logo" class="manufacturer-logo">
+                        <span>SunPower</span>
+                    </button>
+                    <button class="manufacturer-btn" data-manufacturer="lg">
+                        <img src="/images/Solarpanels/LG.jpg" alt="LG Solar logo" class="manufacturer-logo">
+                        <span>LG Solar</span>
+                    </button>
+                    <button class="manufacturer-btn" data-manufacturer="panasonic">
+                        <img src="/images/Solarpanels/panasonic.png" alt="Panasonic logo" class="manufacturer-logo">
+                        <span>Panasonic</span>
+                    </button>
+                    <button class="manufacturer-btn" data-manufacturer="qcells">
+                        <img src="/images/Solarpanels/qcells.png" alt="Q CELLS logo" class="manufacturer-logo">
+                        <span>Q CELLS</span>
+                    </button>
+                    <button class="manufacturer-btn" data-manufacturer="rec">
+                        <img src="/images/Solarpanels/REC.png" alt="REC Solar logo" class="manufacturer-logo">
+                        <span>REC Solar</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Solar panel models listing -->
+            <div id="panel-models-container" class="panel-models-container" style="display: none;">
+                <h3 id="selected-manufacturer-title">Available Models</h3>
+                <div id="panel-models-list" class="panel-models-list">
+                    <!-- Panel model cards will be populated here by JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Detailed panel view -->
+            <div id="panel-detail-container" class="panel-detail-container" style="display: none;">
+                <div class="panel-detail-header">
+                    <button id="back-to-panels" class="back-button">
+                        <span class="back-icon">←</span> Back to models
+                    </button>
+                    <h3 id="panel-detail-title">Solar Panel Details</h3>
+                </div>
+                
+                <div class="panel-detail-content">
+                    <div class="panel-detail-info">
+                        <div class="panel-specs">
+                            <h4>Technical Specifications</h4>
+                            <table class="specs-table" id="panel-specs-table">
+                                <!-- Specifications will be populated here by JavaScript -->
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="panel-efficiency-curve">
+                        <h4>Efficiency Curve</h4>
+                        <div class="chart-container">
+                            <canvas id="efficiency-curve-chart"></canvas>
+                        </div>
+                        <div class="efficiency-curve-description">
+                            <p>The efficiency curve shows how the panel performs under different light conditions and temperatures. 
+                            Higher efficiency means more electricity generated from the same amount of sunlight.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Battery Storage Content -->
+<div id="battery-content" class="content-section" style="display: none;">
+    <section class="battery-section">
+        <div class="container">
+            <h2>Energy Storage Selection</h2>
+            <p>Select a manufacturer and battery model to see detailed specifications and performance data.</p>
+            
+            <!-- Manufacturer selection -->
+            <div class="manufacturer-selection">
+                <h3>Battery Manufacturers</h3>
+                <div class="manufacturer-buttons">
+                    <button class="manufacturer-btn" data-manufacturer="tesla">
+                        <img src="/images/Battery/Tesla.png" alt="Tesla logo" class="manufacturer-logo">
+                        <span>Tesla</span>
+                    </button>
+                    <button class="manufacturer-btn" data-manufacturer="lg-chem">
+                        <img src="/images/Battery/LGchem.png" alt="LG Chem logo" class="manufacturer-logo">
+                        <span>LG Chem</span>
+                    </button>
+                    <button class="manufacturer-btn" data-manufacturer="sonnen">
+                        <img src="/images/Battery/Sonnen.png" alt="Sonnen logo" class="manufacturer-logo">
+                        <span>Sonnen</span>
+                    </button>
+                    <button class="manufacturer-btn" data-manufacturer="enphase">
+                        <img src="/images/Battery/enphase.PNG" alt="Enphase logo" class="manufacturer-logo">
+                        <span>Enphase</span>
+                    </button>
+                    <button class="manufacturer-btn" data-manufacturer="generac">
+                        <img src="/images/Battery/generac.png" alt="Generac logo" class="manufacturer-logo">
+                        <span>Generac</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Battery models listing -->
+            <div id="battery-models-container" class="battery-models-container" style="display: none;">
+                <h3 id="selected-battery-manufacturer-title">Available Models</h3>
+                <div id="battery-models-list" class="battery-models-list">
+                    <!-- Battery model cards will be populated here by JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Detailed battery view -->
+            <div id="battery-detail-container" class="battery-detail-container" style="display: none;">
+                <div class="battery-detail-header">
+                    <button id="back-to-batteries" class="back-button">
+                        <span class="back-icon">←</span> Back to models
+                    </button>
+                    <h3 id="battery-detail-title">Battery Details</h3>
+                </div>
+                
+                <div class="battery-detail-content">
+                    <div class="battery-detail-info">
+                        <div class="battery-specs">
+                            <h4>Technical Specifications</h4>
+                            <table class="specs-table" id="battery-specs-table">
+                                <!-- Specifications will be populated here by JavaScript -->
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="battery-cycle-life">
+                        <h4>Cycle Life</h4>
+                        <div class="chart-container">
+                            <canvas id="cycle-life-chart"></canvas>
+                        </div>
+                        <div class="cycle-life-description">
+                            <p>The cycle life chart shows how the battery capacity degrades over time with usage. 
+                            One cycle equals a complete discharge and recharge of the battery. Higher quality batteries
+                            maintain more of their capacity over a greater number of cycles.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Inverter Selection Content -->
+<div id="inverter-content" class="content-section" style="display: none;">
+    <section class="inverter-section">
+        <div class="container">
+            <h2>Converter Selection</h2>
+            <p>Select a manufacturer and inverter model to see detailed specifications and performance data.</p>
+            
+            <!-- Manufacturer selection -->
+            <div class="manufacturer-selection">
+                <h3>Inverter Manufacturers</h3>
+                <div class="manufacturer-buttons">
+                    <button class="manufacturer-btn" data-manufacturer="sma">
+                        <img src="/images/Inverter/SMA.png" alt="SMA logo" class="manufacturer-logo">
+                        <span>SMA</span>
+                    </button>
+                    <button class="manufacturer-btn" data-manufacturer="fronius">
+                        <img src="/images/Inverter/Fronius.jpg" alt="Fronius logo" class="manufacturer-logo">
+                        <span>Fronius</span>
+                    </button>
+                    <button class="manufacturer-btn" data-manufacturer="solaredge">
+                        <img src="/images/Inverter/solaredge.jpg" alt="SolarEdge logo" class="manufacturer-logo">
+                        <span>SolarEdge</span>
+                    </button>
+                    <button class="manufacturer-btn" data-manufacturer="enphase-inv">
+                        <img src="/images/Battery/enphase.PNG" alt="Enphase logo" class="manufacturer-logo">
+                        <span>Enphase</span>
+                    </button>
+                    <button class="manufacturer-btn" data-manufacturer="huawei">
+                        <img src="/images/Inverter/huawei.png" alt="Huawei logo" class="manufacturer-logo">
+                        <span>Huawei</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Inverter models listing -->
+            <div id="inverter-models-container" class="inverter-models-container" style="display: none;">
+                <h3 id="selected-inverter-manufacturer-title">Available Models</h3>
+                <div id="inverter-models-list" class="inverter-models-list">
+                    <!-- Inverter model cards will be populated here by JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Detailed inverter view -->
+            <div id="inverter-detail-container" class="inverter-detail-container" style="display: none;">
+                <div class="inverter-detail-header">
+                    <button id="back-to-inverters" class="back-button">
+                        <span class="back-icon">←</span> Back to models
+                    </button>
+                    <h3 id="inverter-detail-title">Inverter Details</h3>
+                </div>
+                
+                <div class="inverter-detail-content">
+                    <div class="inverter-detail-info">
+                        <div class="inverter-specs">
+                            <h4>Technical Specifications</h4>
+                            <table class="specs-table" id="inverter-specs-table">
+                                <!-- Specifications will be populated here by JavaScript -->
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="inverter-efficiency-curve">
+                        <h4>Efficiency Curve</h4>
+                        <div class="chart-container">
+                            <canvas id="inverter-efficiency-chart"></canvas>
+                        </div>
+                        <div class="inverter-efficiency-description">
+                            <p>The efficiency curve shows how the inverter performs under different load conditions. 
+                            Higher efficiency means more of the DC power from your solar panels is converted to usable AC power.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Economic Analysis Content -->
+<div id="economic-content" class="content-section" style="display: none;">
+    <section class="economic-analysis-section">
+        <div class="container">
+            <h2>Techno-Economical Analysis</h2>
+            <p>This section provides a detailed economic analysis of your solar energy system.</p>
+            
+            <div class="system-summary">
+                <h3>System Summary</h3>
+                <div id="system-configuration" class="system-configuration">
+                    <!-- System configuration will be populated here by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="economic-analysis">
+                <h3>Financial Analysis</h3>
+                
+                <div class="chart-container">
+                    <canvas id="payback-chart"></canvas>
+                </div>
+                
+                <div class="economic-metrics">
+                    <table id="economic-metrics-table">
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Economic metrics will be populated here by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="incentives-section">
+                    <h3>Available Incentives</h3>
+                    <div id="incentives-container">
+                        <!-- Incentives will be populated here by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="environmental-impact">
+                    <h3>Environmental Impact</h3>
+                    <div id="environmental-metrics">
+                        <!-- Environmental metrics will be populated here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/milos-saric-753772237/" aria-label="LinkedIn"></a>
+                </div>
+                <p class="copyright">Copyright © <span id="current-year">2025</span> Miloš Sarić. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="../main.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJLcPsi1bkubeE2LcAGdFwidjEFSBdC2Y&callback=initMap" async defer></script>
+    <!-- Scripts for each section -->
+    <script src="solarlocation.js?v=11.0"></script>
+    <script src="solarpanel.js?v=11.0"></script>
+    <script src="battery.js?v=11.0"></script>
+    <script src="inverter.js?v=11.0"></script>
+    <script src="economic.js?v=11.0"></script>
+    <script src="buttons.js?v=11.0"></script>
+
+    <button id="backToTop" class="button-glassy floating-top-btn">Back to Top</button>
+</body>
+</html>

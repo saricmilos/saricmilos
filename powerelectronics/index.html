@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PFQVV6K2BN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PFQVV6K2BN');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three-Phase Thyristor Rectifier Circuit Analysis | Miloš Sarić</title>
+    <meta name="description" content="Analysis of three-phase thyristor rectifier circuits for power electronics applications.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../favicon.ico">
+    
+    <!-- CSS Links with version parameters -->
+    <link rel="stylesheet" href="../css/ResetandNormalize.css?v=3.0">
+    <link rel="stylesheet" href="../css/main.css?v=3.0">
+    
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation Header -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-nav">
+                <div class="logo">
+                    <a href="../">Miloš Sarić</a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../about/">About</a></li>
+                    <li><a href="../projects/">Projects</a></li>
+                    <li><a href="../contact/">Contact</a></li>
+                    <li><a href="../rememberingdad/">Remembering Dad</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Three-Phase Thyristor Rectifier Circuit Analysis</h1>
+            <p class="hero-subtitle">Detailed analysis of power electronics conversion from AC to DC</p>
+        </div>
+    </section>
+    
+    <!-- Main Content -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Introduction</h2>
+            <p>
+                This page provides a detailed explanation of a three-phase, fully controlled thyristor rectifier circuit implemented in MATLAB/Simulink. The model demonstrates the conversion of three-phase AC power to controlled DC power using thyristors (silicon-controlled rectifiers or SCRs), which are semiconductor devices widely used in power electronics applications.
+            </p>
+            <p>
+                The circuit configuration shown is a six-pulse rectifier, employing six thyristors arranged in a bridge configuration to provide full-wave rectification of all three phases of the input AC supply.
+            </p>
+            
+            <div class="note-box">
+                <strong>Application Areas:</strong> This type of circuit is commonly used in:
+                <ul>
+                    <li>Variable speed motor drives</li>
+                    <li>Industrial power supplies</li>
+                    <li>HVDC (High Voltage Direct Current) transmission</li>
+                    <li>Battery charging systems</li>
+                    <li>Electrolysis processes</li>
+                </ul>
+            </div>
+            
+            <div class="image-container">
+                <img src="/api/placeholder/800/500" alt="Three-Phase Thyristor Rectifier Circuit Diagram">
+                <p><em>Figure 1: Simplified representation of a three-phase thyristor bridge rectifier</em></p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Circuit Components and Configuration</h2>
+            
+            <div class="two-column-grid">
+                <div class="column">
+                    <h3>Power Supply</h3>
+                    <div class="component-box">
+                        <p>The circuit is powered by a balanced three-phase AC source with the following parameters:</p>
+                        <ul>
+                            <li>Line-to-line voltage: 6000V RMS</li>
+                            <li>Frequency: 50 Hz</li>
+                            <li>Phase shift: 120° between phases</li>
+                        </ul>
+                        <p>Each phase is represented by the voltage sources (Va, Vb, Vc) with appropriate phase angles:</p>
+                        <ul>
+                            <li>Va: 0° phase angle (reference)</li>
+                            <li>Vb: -120° phase angle</li>
+                            <li>Vc: -240° phase angle (or +120°)</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Thyristor Bridge</h3>
+                    <div class="component-box">
+                        <p>The model uses six thyristors arranged in a three-phase bridge configuration:</p>
+                        <ul>
+                            <li>Upper bridge arm: Thyristors T1, T3, T5</li>
+                            <li>Lower bridge arm: Thyristors T4, T6, T2</li>
+                        </ul>
+                        <p>Each thyristor is triggered by gate pulses from the Pulse Generator block, which controls the firing angle (α).</p>
+                    </div>
+                </div>
+                
+                <div class="column">
+                    <h3>Load Circuit</h3>
+                    <div class="component-box">
+                        <p>The DC side of the rectifier is connected to an R-L-C load:</p>
+                        <ul>
+                            <li>Resistor: 1 Ω</li>
+                            <li>Inductor: 0.1 H</li>
+                            <li>Capacitor: 2700 μF</li>
+                        </ul>
+                        <p>This combination provides filtering of the rectified DC output while allowing for energy storage in the inductor and capacitor.</p>
+                    </div>
+                    
+                    <h3>Measurement and Control</h3>
+                    <div class="component-box">
+                        <p>The model includes various measurement components:</p>
+                        <ul>
+                            <li>Current Sensors: Measuring phase currents and load current</li>
+                            <li>Voltage Sensors: Measuring phase voltages and load voltage</li>
+                            <li>RMS Calculation Blocks: Computing RMS values of voltages and currents</li>
+                            <li>Power Calculation: Computing apparent power, active power, and power factor</li>
+                            <li>Three-phase PLL (Phase-Locked Loop): For synchronization with the AC supply</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Operating Principles</h2>
+            
+            <div class="two-column-grid">
+                <div class="column">
+                    <h3>Thyristor Operation</h3>
+                    <p>
+                        Thyristors (SCRs) are semiconductor devices that act as controlled switches. They are turned on by applying a gate pulse and remain conducting until the current through them falls below the holding current level (usually during the negative half-cycle of the AC supply).
+                    </p>
+                    <p>
+                        In this three-phase bridge, each thyristor conducts for 120° of the electrical cycle. At any given time, two thyristors are conducting - one from the upper group and one from the lower group.
+                    </p>
+                    
+                    <h3>Firing Angle Control</h3>
+                    <p>
+                        The key parameter controlling the output voltage is the firing angle (α), which is the electrical angle after the zero crossing at which thyristors are triggered.
+                    </p>
+                    <ul>
+                        <li>When α = 0°, the rectifier operates like a diode bridge, providing maximum output voltage</li>
+                        <li>As α increases from 0° to 90°, the average DC output voltage decreases</li>
+                        <li>For α > 90°, the rectifier operates in the inverter mode (power flows from DC to AC side)</li>
+                    </ul>
+                    
+                    <div class="equation">
+                        <strong>Average DC Output Voltage:</strong> V<sub>dc</sub> = (3√2/π) × V<sub>LL</sub> × cos(α)
+                    </div>
+                    <p>Where V<sub>LL</sub> is the RMS line-to-line input voltage and α is the firing angle.</p>
+                </div>
+                
+                <div class="column">
+                    <h3>Conduction Sequence</h3>
+                    <p>
+                        The thyristors in a three-phase bridge follow a specific firing sequence with a 60° interval between consecutive thyristors:
+                    </p>
+                    <table class="data-table">
+                        <tr>
+                            <th>Time Interval</th>
+                            <th>Conducting Thyristors</th>
+                            <th>Line-to-Line Voltage</th>
+                        </tr>
+                        <tr>
+                            <td>0° - 60°</td>
+                            <td>T1, T6</td>
+                            <td>V<sub>ab</sub></td>
+                        </tr>
+                        <tr>
+                            <td>60° - 120°</td>
+                            <td>T1, T2</td>
+                            <td>V<sub>ac</sub></td>
+                        </tr>
+                        <tr>
+                            <td>120° - 180°</td>
+                            <td>T3, T2</td>
+                            <td>V<sub>bc</sub></td>
+                        </tr>
+                        <tr>
+                            <td>180° - 240°</td>
+                            <td>T3, T4</td>
+                            <td>V<sub>ba</sub></td>
+                        </tr>
+                        <tr>
+                            <td>240° - 300°</td>
+                            <td>T5, T4</td>
+                            <td>V<sub>ca</sub></td>
+                        </tr>
+                        <tr>
+                            <td>300° - 360°</td>
+                            <td>T5, T6</td>
+                            <td>V<sub>cb</sub></td>
+                        </tr>
+                    </table>
+                    
+                    <h3>Output Waveform</h3>
+                    <p>
+                        The output of a three-phase rectifier has the following characteristics:
+                    </p>
+                    <ul>
+                        <li>Six pulses per cycle (hence "six-pulse rectifier")</li>
+                        <li>Ripple frequency: 6 times the input frequency (300 Hz for 50 Hz supply)</li>
+                        <li>Lower ripple compared to single-phase rectifiers</li>
+                        <li>Higher DC component compared to single-phase rectifiers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Performance Analysis</h2>
+            
+            <div class="two-column-grid">
+                <div class="column">
+                    <h3>Power Calculations</h3>
+                    <p>
+                        The model includes blocks for calculating:
+                    </p>
+                    <ul>
+                        <li><strong>Apparent Power (S):</strong> Product of RMS voltage and RMS current</li>
+                        <li><strong>Active Power (P):</strong> Real power delivered to the load</li>
+                        <li><strong>Power Factor:</strong> Ratio of active power to apparent power</li>
+                    </ul>
+                    <p>
+                        The power factor decreases as the firing angle increases, which is one of the disadvantages of phase-controlled rectifiers.
+                    </p>
+                    
+                    <h3>Harmonics</h3>
+                    <p>
+                        Three-phase rectifiers generate harmonics both on the AC and DC sides:
+                    </p>
+                    <ul>
+                        <li>DC side: 6k (k = 1, 2, 3...) harmonics of the fundamental frequency</li>
+                        <li>AC side: (6k ± 1) (k = 1, 2, 3...) harmonics of the fundamental frequency</li>
+                    </ul>
+                    <p>
+                        These harmonics can cause:
+                    </p>
+                    <ul>
+                        <li>Additional heating in transformers and motors</li>
+                        <li>Increased losses in the system</li>
+                        <li>Interference with communication systems</li>
+                        <li>Resonance with power factor correction capacitors</li>
+                    </ul>
+                </div>
+                
+                <div class="column">
+                    <h3>Effect of Firing Angle Variation</h3>
+                    <p>
+                        The Simulink model allows for studying the effect of varying the firing angle:
+                    </p>
+                    <table class="data-table">
+                        <tr>
+                            <th>Firing Angle (α)</th>
+                            <th>Effect on Output</th>
+                        </tr>
+                        <tr>
+                            <td>0°</td>
+                            <td>Maximum DC voltage, unity displacement power factor</td>
+                        </tr>
+                        <tr>
+                            <td>30°</td>
+                            <td>86.6% of maximum voltage, reduced power factor</td>
+                        </tr>
+                        <tr>
+                            <td>60°</td>
+                            <td>50% of maximum voltage, poor power factor</td>
+                        </tr>
+                        <tr>
+                            <td>90°</td>
+                            <td>Zero average DC voltage (theoretical)</td>
+                        </tr>
+                        <tr>
+                            <td>>90°</td>
+                            <td>Negative DC voltage (inverter mode), regenerative operation</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="image-container">
+                        <img src="/api/placeholder/800/400" alt="Output Voltage Waveforms at Different Firing Angles">
+                        <p><em>Figure 2: Typical output voltage waveforms at different firing angles</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Practical Considerations</h2>
+            
+            <div class="two-column-grid">
+                <div class="column">
+                    <h3>Advantages</h3>
+                    <ul>
+                        <li>Simple and robust circuit with high efficiency</li>
+                        <li>Ability to control output voltage magnitude</li>
+                        <li>High power handling capability</li>
+                        <li>Bidirectional power flow capability (when α > 90°)</li>
+                        <li>Lower ripple compared to single-phase rectifiers</li>
+                    </ul>
+                    
+                    <h3>Limitations</h3>
+                    <ul>
+                        <li>Poor power factor at high firing angles</li>
+                        <li>Generation of harmonics in both AC and DC sides</li>
+                        <li>Requires gate driver circuits for thyristors</li>
+                        <li>Commutation overlap due to source inductance (not modeled in ideal case)</li>
+                        <li>Need for additional filtering for sensitive loads</li>
+                    </ul>
+                </div>
+                
+                <div class="column">
+                    <h3>Improvements</h3>
+                    <p>
+                        Several techniques can be employed to improve the performance of thyristor rectifiers:
+                    </p>
+                    <ul>
+                        <li><strong>Pulse Width Modulation (PWM):</strong> For reducing harmonics</li>
+                        <li><strong>Active Power Factor Correction:</strong> To improve power factor</li>
+                        <li><strong>Multipulse Configurations:</strong> 12-pulse, 18-pulse, or 24-pulse rectifiers to reduce harmonics</li>
+                        <li><strong>Active Front End:</strong> Using IGBTs with PWM control instead of thyristors</li>
+                        <li><strong>Harmonic Filters:</strong> Passive or active filters to mitigate harmonics</li>
+                    </ul>
+                    
+                    <h3>MATLAB/Simulink Implementation Notes</h3>
+                    <p>
+                        The provided Simulink model includes:
+                    </p>
+                    <ul>
+                        <li>Thyristor blocks with realistic parameters</li>
+                        <li>A "Pulse Generator (Thyristor, 6-Pulse)" block for firing control</li>
+                        <li>Measurement blocks for comprehensive analysis</li>
+                        <li>Scopes for visualizing key waveforms</li>
+                    </ul>
+                    <p>
+                        To run the simulation:
+                    </p>
+                    <ol>
+                        <li>Open the .slx file in MATLAB/Simulink</li>
+                        <li>Set simulation parameters (stop time, solver options)</li>
+                        <li>Run the simulation</li>
+                        <li>Analyze the results using the provided scopes or export data for further analysis</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Conclusion</h2>
+            <p>
+                The three-phase thyristor rectifier is a fundamental circuit in power electronics that provides controllable conversion from AC to DC power. The Simulink model presented allows for in-depth analysis of its operation under various conditions, making it an excellent tool for educational purposes and preliminary design studies.
+            </p>
+            <p>
+                Understanding the operation and characteristics of this circuit is essential for power electronics engineers working on motor drives, industrial power supplies, and renewable energy integration systems.
+            </p>
+            
+            <div class="note-box">
+                <strong>Note:</strong> This analysis is based on an ideal circuit model. In real-world applications, additional factors like source impedance, snubber circuits, and electromagnetic interference (EMI) filters would need to be considered.
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="#" class="button button-secondary">Download Simulink Model</a>
+                <a href="#" class="button button-secondary">View Simulation Results</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/milos-saric-753772237/" aria-label="LinkedIn"></a>
+                </div>
+                <p class="copyright">Copyright © <span id="current-year">2025</span> Miloš Sarić. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="../main.js"></script>
+</body>
+</html>

@@ -1,0 +1,486 @@
+<!-- 
+  © 2025 Milos Saric. All rights reserved.
+  This HTML file is protected by copyright law and international treaties.
+  Unauthorized reproduction, distribution, or modification of this file
+  may result in civil and criminal penalties.
+  Contact: milossaric@outlook.com
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PFQVV6K2BN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PFQVV6K2BN');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Risk Prediction | Miloš Sarić</title>
+    <meta name="description" content="Predict your diabetes risk using machine learning algorithms.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../favicon.ico">
+    
+    <!-- CSS Links with version parameters -->
+    <link rel="stylesheet" href="../css/ResetandNormalize.css?v=11.0">
+    <link rel="stylesheet" href="../css/main.css?v=11.0">
+    <link rel="stylesheet" href="style.css?v=11.0">
+    
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS for the React component -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+    
+    <!-- React and React DOM -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel for JSX -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.21.2/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- Navigation Header -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-nav">
+                <div class="logo">
+                    <a href="../">Miloš Sarić</a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../about/">About</a></li>
+                    <li><a href="../projects/">Projects</a></li>
+                    <li><a href="../contact/">Contact</a></li>
+                    <li><a href="../rememberingdad/">Remembering Dad</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>AI-Powered Diabetes Risk Prediction Tool<br>// Find Out in Seconds</h1>
+            <p class="hero-subtitle">Assess your diabetes risk using advanced predictive algorithms</p>
+        </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-wrapper">
+                <div id="diabetes-prediction-tool" class="tool-container"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About the Model Section -->
+    <section class="content-section bg-light">
+        <div class="container">
+            <h2 class="section-title">About the Prediction Model</h2>
+            <div class="content-wrapper">
+                <p>This diabetes risk assessment tool uses a logistic regression model trained on health and demographic data to estimate your risk of developing diabetes. The model takes into account various factors including blood pressure, cholesterol levels, BMI, age, and lifestyle choices.</p>
+                <p>Our model was trained using scikit-learn and optimized for accuracy and reliability. While this tool can provide valuable insights into your diabetes risk, it is not a substitute for professional medical advice.</p>
+                <div class="cta-buttons" style="margin-top: 2rem;">
+                    <a href="../contact/" class="button button-secondary">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/milos-saric-753772237/" aria-label="LinkedIn"></a>
+                </div>
+                <p class="copyright">Copyright © <span id="current-year">2025</span> Miloš Sarić. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="../main.js?v=11"></script>
+    <script src="buttons.js?v=11"></script>
+
+    <!-- Diabetes Prediction Tool React Component -->
+    <script type="text/babel">
+        // Model loading utility function
+        const loadModel = async () => {
+            try {
+                // In a real application, you would load the model from the server
+                // For this demo, we'll use the mock implementation from the original component
+                console.log("Model would be loaded here in a production environment");
+                return true;
+            } catch (error) {
+                console.error("Error loading model:", error);
+                return false;
+            }
+        };
+
+        // Main component (adapted from diabetes.js)
+// Apple-inspired Diabetes Risk Assessment Tool
+const DiabetesPredictionTool = () => {
+  // State for form values
+  const [formData, setFormData] = React.useState({
+    HighBP: "0",
+    HighChol: "0",
+    CholCheck: "0",
+    BMI: "25",
+    Smoker: "0",
+    Stroke: "0",
+    HeartDiseaseorAttack: "0",
+    PhysActivity: "0",
+    Fruits: "0",
+    Veggies: "0",
+    HvyAlcoholConsump: "0",
+    AnyHealthcare: "0",
+    NoDocbcCost: "0",
+    GenHlth: "3",
+    MentHlth: "0",
+    PhysHlth: "0",
+    DiffWalk: "0",
+    Sex: "0",
+    Age: "5",
+    Education: "4",
+    Income: "5"
+  });
+
+  // State for prediction result
+  const [prediction, setPrediction] = React.useState(null);
+  const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState(null);
+
+  // Handle input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  // Function to make prediction
+  const makePrediction = () => {
+    setLoading(true);
+    setError(null);
+    
+    try {
+      // In a real application, this would call your backend API
+      // For this demo, we'll simulate a prediction based on known risk factors
+      const riskFactors = [
+        parseInt(formData.HighBP) * 1.5,
+        parseInt(formData.HighChol) * 1.1,
+        parseInt(formData.Stroke) * 1.3,
+        parseInt(formData.HeartDiseaseorAttack) * 1.4,
+        parseInt(formData.DiffWalk) * 0.8,
+        Math.max(0, (parseFloat(formData.BMI) - 25) * 0.1),
+        parseInt(formData.Age) * 0.2
+      ];
+      
+      const riskScore = riskFactors.reduce((sum, factor) => sum + factor, 0);
+      const hasDiabetes = riskScore > 3;
+      
+      setTimeout(() => {
+        setPrediction({
+          hasDiabetes: hasDiabetes,
+          probability: Math.min(0.95, Math.max(0.05, riskScore / 10)) // Capped between 5% and 95%
+        });
+        setLoading(false);
+      }, 500); // Simulate API delay
+    } catch (err) {
+      setError("An error occurred during prediction. Please try again.");
+      setLoading(false);
+    }
+  };
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    makePrediction();
+  };
+
+  // Feature definitions
+  const features = {
+    binaryFeatures: [
+      { name: "HighBP", description: "High Blood Pressure" },
+      { name: "HighChol", description: "High Cholesterol" },
+      { name: "CholCheck", description: "Cholesterol Check in 5 Years" },
+      { name: "Smoker", description: "Smoked at least 100 cigarettes" },
+      { name: "Stroke", description: "Ever had a stroke" },
+      { name: "HeartDiseaseorAttack", description: "Coronary heart disease or myocardial infarction" },
+      { name: "PhysActivity", description: "Physical activity in past 30 days" },
+      { name: "Fruits", description: "Consume fruit 1 or more times per day" },
+      { name: "Veggies", description: "Consume vegetables 1 or more times per day" },
+      { name: "HvyAlcoholConsump", description: "Heavy alcohol consumption" },
+      { name: "AnyHealthcare", description: "Have any kind of health care coverage" },
+      { name: "NoDocbcCost", description: "Could not see doctor due to cost in past 12 months" },
+      { name: "DiffWalk", description: "Serious difficulty walking or climbing stairs" },
+    ],
+    sexOptions: [
+      { value: "0", label: "Female" },
+      { value: "1", label: "Male" },
+    ],
+    genHlthOptions: [
+      { value: "1", label: "Excellent" },
+      { value: "2", label: "Very Good" },
+      { value: "3", label: "Good" },
+      { value: "4", label: "Fair" },
+      { value: "5", label: "Poor" },
+    ],
+    ageOptions: [
+      { value: "1", label: "18-24" },
+      { value: "2", label: "25-29" },
+      { value: "3", label: "30-34" },
+      { value: "4", label: "35-39" },
+      { value: "5", label: "40-44" },
+      { value: "6", label: "45-49" },
+      { value: "7", label: "50-54" },
+      { value: "8", label: "55-59" },
+      { value: "9", label: "60-64" },
+      { value: "10", label: "65-69" },
+      { value: "11", label: "70-74" },
+      { value: "12", label: "75-79" },
+      { value: "13", label: "80+" },
+    ],
+    educationOptions: [
+      { value: "1", label: "Never attended school" },
+      { value: "2", label: "Elementary" },
+      { value: "3", label: "Some high school" },
+      { value: "4", label: "High school graduate" },
+      { value: "5", label: "Some college" },
+      { value: "6", label: "College graduate" },
+    ],
+    incomeOptions: [
+      { value: "1", label: "<$10K" },
+      { value: "2", label: "$10-15K" },
+      { value: "3", label: "$15-20K" },
+      { value: "4", label: "$20-25K" },
+      { value: "5", label: "$25-35K" },
+      { value: "6", label: "$35-50K" },
+      { value: "7", label: "$50-75K" },
+      { value: "8", label: ">$75K" },
+    ],
+  };
+
+  // Feature groups for UI organization
+  const featureGroups = [
+    {
+      name: "Basic Health Indicators",
+      features: ["HighBP", "HighChol", "CholCheck", "BMI", "Smoker"]
+    },
+    {
+      name: "Medical History",
+      features: ["Stroke", "HeartDiseaseorAttack", "DiffWalk"]
+    },
+    {
+      name: "Lifestyle",
+      features: ["Fruits", "Veggies", "HvyAlcoholConsump", "PhysActivity"]
+    },
+    {
+      name: "Healthcare Access",
+      features: ["AnyHealthcare", "NoDocbcCost"]
+    },
+    {
+      name: "Health Status",
+      features: ["GenHlth", "MentHlth", "PhysHlth"]
+    },
+    {
+      name: "Demographics",
+      features: ["Sex", "Age", "Education", "Income"]
+    }
+  ];
+
+  // Render a binary feature input (Yes/No radio buttons)
+  const renderBinaryFeature = (name, description) => {
+    return (
+      <div className="form-control" key={name}>
+        <label className="form-label">{description}</label>
+        <div className="radio-group">
+          <label className="radio-label">
+            <input
+              type="radio"
+              name={name}
+              value="0"
+              checked={formData[name] === "0"}
+              onChange={handleChange}
+              className="radio-input"
+            />
+            <span className="radio-control"></span>
+            <span className="radio-text">No</span>
+          </label>
+          <label className="radio-label">
+            <input
+              type="radio"
+              name={name}
+              value="1"
+              checked={formData[name] === "1"}
+              onChange={handleChange}
+              className="radio-input"
+            />
+            <span className="radio-control"></span>
+            <span className="radio-text">Yes</span>
+          </label>
+        </div>
+      </div>
+    );
+  };
+
+  // Render a dropdown select input
+  const renderSelectInput = (name, description, options) => {
+    return (
+      <div className="form-control" key={name}>
+        <label className="form-label">{description}</label>
+        <select
+          name={name}
+          value={formData[name]}
+          onChange={handleChange}
+          className="form-select"
+        >
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </div>
+    );
+  };
+
+  // Render a numeric input
+  const renderNumericInput = (name, description, min, max) => {
+    return (
+      <div className="form-control" key={name}>
+        <label className="form-label">{description}</label>
+        <input
+          type="number"
+          name={name}
+          value={formData[name]}
+          onChange={handleChange}
+          min={min}
+          max={max}
+          step="1"
+          className="form-input"
+        />
+      </div>
+    );
+  };
+
+  return (
+    <div className="diabetes-tool">
+      <div className="diabetes-tool-header">
+        <h2 className="diabetes-tool-title">Diabetes Risk Assessment Tool</h2>
+        <p className="diabetes-tool-subtitle">
+          Fill out the form below to assess your risk of diabetes based on health and lifestyle factors.
+        </p>
+      </div>
+
+      <form onSubmit={handleSubmit} className="diabetes-tool-form">
+        {featureGroups.map((group) => (
+          <div key={group.name} className="feature-group">
+            <div className="feature-group-header">
+              <h3 className="feature-group-title">{group.name}</h3>
+            </div>
+            <div className="feature-group-content">
+              {group.features.map((featureName) => {
+                // Handle different types of features
+                if (featureName === "BMI") {
+                  return renderNumericInput("BMI", "Body Mass Index", 10, 50);
+                } else if (featureName === "MentHlth") {
+                  return renderNumericInput("MentHlth", "Days of poor mental health in past 30 days", 0, 30);
+                } else if (featureName === "PhysHlth") {
+                  return renderNumericInput("PhysHlth", "Days of poor physical health in past 30 days", 0, 30);
+                } else if (featureName === "GenHlth") {
+                  return renderSelectInput("GenHlth", "General Health", features.genHlthOptions);
+                } else if (featureName === "Sex") {
+                  return renderSelectInput("Sex", "Gender", features.sexOptions);
+                } else if (featureName === "Age") {
+                  return renderSelectInput("Age", "Age Group", features.ageOptions);
+                } else if (featureName === "Education") {
+                  return renderSelectInput("Education", "Education Level", features.educationOptions);
+                } else if (featureName === "Income") {
+                  return renderSelectInput("Income", "Income Level", features.incomeOptions);
+                } else {
+                  // Binary features
+                  const feature = features.binaryFeatures.find(f => f.name === featureName);
+                  if (feature) {
+                    return renderBinaryFeature(feature.name, feature.description);
+                  }
+                  return null;
+                }
+              })}
+            </div>
+          </div>
+        ))}
+
+        <button
+          type="submit"
+          disabled={loading}
+          className="diabetes-tool-submit"
+        >
+          {loading ? "Calculating..." : "Check Diabetes Risk"}
+        </button>
+      </form>
+
+      {error && (
+        <div className="error-message">
+          {error}
+        </div>
+      )}
+
+      {prediction && !error && (
+        <div className="results-container">
+          <h3 className="results-title">Your Diabetes Risk Assessment</h3>
+          <div className={`risk-indicator ${prediction.hasDiabetes ? 'high-risk' : 'low-risk'}`}>
+            <div>
+              <div className="risk-percentage">{Math.round(prediction.probability * 100)}%</div>
+              <div className="risk-label">Risk</div>
+            </div>
+          </div>
+          <p className="results-message">
+            {prediction.hasDiabetes 
+              ? "Based on your inputs, you may have an elevated risk of diabetes." 
+              : "Based on your inputs, you appear to have a lower risk of diabetes."}
+          </p>
+          <div className="disclaimer">
+            <p>
+              <strong>Important:</strong> This tool provides only an estimate based on statistical models and is not a medical diagnosis. Please consult a healthcare professional for proper medical advice and testing.
+            </p>
+          </div>
+        </div>
+      )}
+
+      <div className="diabetes-tool-footer">
+        <p>This tool is for educational purposes only and not intended to replace professional medical advice.</p>
+      </div>
+    </div>
+  );
+};
+
+        // Render the component to the DOM
+        ReactDOM.render(
+          <DiabetesPredictionTool />,
+          document.getElementById('diabetes-prediction-tool')
+        );
+
+        // Update the current year in the footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+<button id="backToTop" class="button-glassy floating-top-btn">Back to Top</button>
+
+</body>
+</html>

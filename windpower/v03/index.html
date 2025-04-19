@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PFQVV6K2BN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PFQVV6K2BN');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create the wind farm of tomorrow | Miloš Sarić</title>
+    <meta name="description" content="Interactive Global Wind Atlas Viewer for wind resource assessment.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../favicon.ico">
+    
+    <!-- CSS Links with version parameters -->
+    <link rel="stylesheet" href="../css/ResetandNormalize.css?v=5.0">
+    <link rel="stylesheet" href="../css/main.css?v=5.0">
+    <link rel="stylesheet" href="style.css?v=6.0">
+    
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+</head>
+
+<body>
+    <!-- Navigation Header -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-nav">
+                <div class="logo">
+                    <a href="../">Miloš Sarić</a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../about/">About</a></li>
+                    <li><a href="../projects/">Projects</a></li>
+                    <li><a href="../contact/">Contact</a></li>
+                    <li><a href="../rememberingdad/">Remembering Dad</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Create the wind farm of tomorrow<br>// a better world, built by you</h1>
+            <p class="hero-subtitle">An interactive platform to build and test your own wind power plant.</p>
+        </div>
+    </section>
+
+    
+
+<!-- Add this new section after the hero section -->
+<section class="navigation-buttons">
+    <div class="container">
+        <div class="buttons-wrapper">
+            <button id="location-btn" class="nav-button active">Wind Power Plant Location</button>
+            <button id="turbine-btn" class="nav-button">Wind Turbine Model</button>
+            <button id="economic-btn" class="nav-button">Techno-Economical Analysis</button>
+        </div>
+    </div>
+</section>
+
+<!-- Wrap the existing plant location section in a content section -->
+<div id="location-content" class="content-section">
+    <!-- Plant Location Selection Section -->
+    <section class="plant-location-section">
+        <div class="container">
+            <h2>Wind Power Plant Location</h2>
+            <p>Please select the location of your wind power plant on the map below. Click on your desired location or use the search function to find specific coordinates.</p>
+            <div class="location-benefits">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌬️</div>
+                    <div class="benefit-text">
+                        <h3>Accurate Wind Data</h3>
+                        <p>Get precise wind speed and direction data for your selected location</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-text">
+                        <h3>Power Calculations</h3>
+                        <p>Calculate potential power output based on local wind conditions</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📊</div>
+                    <div class="benefit-text">
+                        <h3>Statistical Analysis</h3>
+                        <p>Review Weibull parameters and other key metrics for your site</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section class="wind-atlas-content">
+        <div class="container">
+            <div class="controls">
+                <p>Click on the map to select a location or use the search box to find a place.</p>
+                <div class="search-container">
+                    <input id="search-input" type="text" placeholder="Search for a location..." aria-label="Search for a location">
+                    <button id="search-button" class="button button-secondary">Search</button>
+                </div>
+            </div>
+            
+            <div id="map" aria-label="Interactive map for selecting location"></div>
+            
+            <div class="coordinates">
+                <p>Selected coordinates: <span id="selected-lat">--</span>, <span id="selected-lng">--</span></p>
+                <button id="get-wind-data" class="button button-secondary">Get Wind Data</button>
+                <div class="loading" id="loading-indicator">Loading wind data...</div>
+            </div>
+            
+            <div class="results" id="results-container">
+                <h2>Wind Parameters at Selected Location</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Value</th>
+                            <th>Unit</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-table">
+                        <!-- Results will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="weibull-section" id="weibull-section" style="display: none;">
+                <div class="container">
+                    <h2>Weibull Distribution Analysis</h2>
+                    <p class="section-description">
+                        The Weibull distribution shows the frequency of different wind speeds at this location. 
+                        This information is crucial for estimating power production and selecting optimal turbine models.
+                    </p>
+                    
+                    <div class="chart-container">
+                        <canvas id="weibull-chart"></canvas>
+                    </div>
+                    
+                    <div class="weibull-stats-container" id="weibull-stats-container">
+                        <!-- Weibull statistics will be populated here by JavaScript -->
+                    </div>
+                    
+                    <div class="weibull-explanation">
+                        <h3>Understanding the Weibull Distribution</h3>
+                        <p>
+                            The Weibull distribution is a probability function commonly used to model wind speed variations.
+                            It is defined by two key parameters:
+                        </p>
+                        <ul>
+                            <li><strong>Scale parameter (A):</strong> Relates to the average wind speed at the location</li>
+                            <li><strong>Shape parameter (k):</strong> Describes the wind speed variation - higher values indicate more consistent winds</li>
+                        </ul>
+                        <p>
+                            This chart shows both the probability density (blue area) and the estimated hours per year (orange line) 
+                            for each wind speed value. The analysis helps in determining the expected energy production and 
+                            selecting the most suitable turbine for your specific location.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Replace the existing turbine-content div with this updated version -->
+<div id="turbine-content" class="content-section" style="display: none;">
+    <section class="turbine-model-section">
+        <div class="container">
+            <h2>Wind Turbine Model Selection</h2>
+            <p>Select a manufacturer and turbine model to see detailed specifications and power curve data.</p>
+            
+            <!-- Manufacturer selection -->
+            <div class="manufacturer-selection">
+                <h3>Wind Turbine Manufacturers</h3>
+                <div class="manufacturer-buttons">
+                    <button class="manufacturer-btn" data-manufacturer="vestas">
+                        <img src="/images/vestas_logo.jpeg" alt="Vestas logo" class="manufacturer-logo">
+                        <span>Vestas</span>
+                    </button>
+                    <button class="manufacturer-btn" data-manufacturer="siemens-gamesa">
+                        <img src="/images/siemensgamesa_logo.jpeg" alt="Siemens Gamesa logo" class="manufacturer-logo">
+                        <span>Siemens Gamesa</span>
+                    </button>
+                    <button class="manufacturer-btn" data-manufacturer="ge">
+                        <img src="/images/General_Electric_logo.png" alt="GE Renewable Energy logo" class="manufacturer-logo">
+                        <span>GE Renewable Energy</span>
+                    </button>
+                    <button class="manufacturer-btn" data-manufacturer="goldwind">
+                        <img src="/images/goldwind_logo.jpeg" alt="Goldwind logo" class="manufacturer-logo">
+                        <span>Goldwind</span>
+                    </button>
+                    <button class="manufacturer-btn" data-manufacturer="enercon">
+                        <img src="/images/enercon-logo.png" alt="Enercon logo" class="manufacturer-logo">
+                        <span>Enercon</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Turbine models listing -->
+            <div id="turbine-models-container" class="turbine-models-container" style="display: none;">
+                <h3 id="selected-manufacturer-title">Available Models</h3>
+                <div id="turbine-models-list" class="turbine-models-list">
+                    <!-- Turbine model cards will be populated here by JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Detailed turbine view -->
+            <div id="turbine-detail-container" class="turbine-detail-container" style="display: none;">
+                <div class="turbine-detail-header">
+                    <button id="back-to-models" class="back-button">
+                        <span class="back-icon">←</span> Back to models
+                    </button>
+                    <h3 id="turbine-detail-title">Turbine Model Details</h3>
+                </div>
+                
+                <div class="turbine-detail-content">
+                    <div class="turbine-detail-info">
+                        <div class="turbine-image-container">
+                            <img id="turbine-detail-image" src="/api/placeholder/400/500" alt="Turbine model" class="turbine-detail-image">
+                        </div>
+                        <div class="turbine-specs">
+                            <h4>Technical Specifications</h4>
+                            <table class="specs-table" id="turbine-specs-table">
+                                <!-- Specifications will be populated here by JavaScript -->
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="turbine-power-curve">
+                        <h4>Power Curve</h4>
+                        <div class="chart-container">
+                            <canvas id="power-curve-chart"></canvas>
+                        </div>
+                        <div class="power-curve-description">
+                            <p>The power curve shows the relationship between wind speed (m/s) and power output (kW). 
+                            Cut-in speed is the minimum wind speed at which the turbine begins producing usable power. 
+                            Rated speed is when the turbine reaches its maximum power output. 
+                            Cut-out speed is when the turbine shuts down to prevent damage from high winds.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div id="economic-content" class="content-section" style="display: none;">
+    <section class="economic-analysis-section">
+        <div class="container">
+            <h2>Techno-Economical Analysis</h2>
+            <p>This section will provide detailed economic analysis of your wind power project.</p>
+            <div class="placeholder-content">
+                <p>Techno-economical analysis content will be implemented in the next phase.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/milos-saric-753772237/" aria-label="LinkedIn"></a>
+                </div>
+                <p class="copyright">Copyright © <span id="current-year">2025</span> Miloš Sarić. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="../main.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACpuGXbnYIoJy1jcEoopFBBOoHjfJysXk&libraries=places&callback=initMap" async defer></script>
+    <!-- Location -->
+    <script src="windlocation.js"></script>
+    <script src="windturbine.js"></script>
+    <script src="economic.js"></script>
+</body>
+</html>

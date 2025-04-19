@@ -1,0 +1,350 @@
+/*
+  © 2025 Milos Saric. All rights reserved.
+  This CSS file is protected by copyright law and international treaties.
+  Unauthorized reproduction or redistribution is strictly prohibited.
+  Contact: milossaric@outlook.com
+*/
+
+/* Primary Button */
+.button-primary {
+    background-color: #0071e3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 22px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.button-primary:hover {
+    background-color: #0077ed;
+}
+
+.button-primary:active {
+    transform: scale(0.98);
+}
+
+/* Secondary Button */
+.button-secondary {
+    background-color: #f5f5f7;
+    color: #1d1d1f;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 22px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.button-secondary:hover {
+    background-color: #e5e5e7;
+}
+
+.button-secondary:active {
+    transform: scale(0.98);
+}
+
+/* Outline Button */
+.button-outline {
+    background-color: transparent;
+    color: #0071e3;
+    border: 1px solid #0071e3;
+    border-radius: 8px;
+    padding: 11px 21px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.button-outline:hover {
+    background-color: rgba(0, 113, 227, 0.05);
+}
+
+.button-outline:active {
+    transform: scale(0.98);
+}
+
+/* Text Button */
+.button-text {
+    background-color: transparent;
+    color: #0071e3;
+    border: none;
+    padding: 12px 16px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.button-text:hover {
+    color: #0077ed;
+    text-decoration: underline;
+}
+
+/* Large Button */
+.button-large {
+    padding: 16px 26px;
+    font-size: 17px;
+}
+
+/* Small Button */
+.button-small {
+    padding: 8px 16px;
+    font-size: 13px;
+}
+
+/* Icon Button */
+.button-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.button-icon svg,
+.button-icon img {
+    width: 16px;
+    height: 16px;
+}
+
+/* Disabled Button */
+.button-disabled,
+.button-primary:disabled,
+.button-secondary:disabled,
+.button-outline:disabled,
+.button-text:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.button-disabled:hover,
+.button-primary:disabled:hover,
+.button-secondary:disabled:hover,
+.button-outline:disabled:hover,
+.button-text:disabled:hover {
+    transform: none;
+    background-color: inherit;
+    color: inherit;
+}
+
+/* Full Width Button */
+.button-full {
+    width: 100%;
+    display: block;
+}
+
+/* Glassy Button (for floating actions) */
+.button-glassy {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #1d1d1f;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    padding: 12px 22px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.button-glassy:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.button-glassy:active {
+    transform: scale(0.98);
+}
+
+/* Success Button */
+.button-success {
+    background-color: #34c759;
+    color: white;
+}
+
+.button-success:hover {
+    background-color: #30b653;
+}
+
+/* Warning Button */
+.button-warning {
+    background-color: #ff9500;
+    color: white;
+}
+
+.button-warning:hover {
+    background-color: #e68600;
+}
+
+/* Danger Button */
+.button-danger {
+    background-color: #ff3b30;
+    color: white;
+}
+
+.button-danger:hover {
+    background-color: #e6352b;
+}
+
+/* Button Group */
+.button-group {
+    display: inline-flex;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.button-group button {
+    border-radius: 0;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.button-group button:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.button-group button:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-right: none;
+}
+
+/* Button with loading state */
+.button-loading {
+    position: relative;
+    color: transparent !important;
+}
+
+.button-loading::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: button-loading-spinner 0.8s ease infinite;
+}
+
+@keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+/* Media Queries for Responsive Buttons */
+@media (max-width: 768px) {
+    .button-primary,
+    .button-secondary,
+    .button-outline,
+    .button-text,
+    .button-glassy {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+    
+    .button-large {
+        padding: 14px 22px;
+        font-size: 16px;
+    }
+    
+    .button-small {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .button-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .button-group button {
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .button-group button:first-child {
+        border-radius: 8px 8px 0 0;
+    }
+    
+    .button-group button:last-child {
+        border-radius: 0 0 8px 8px;
+        border-bottom: none;
+    }
+}
+
+/* Style for the proceed button */
+#proceed-to-panel {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    font-family: var(--font-family);
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: var(--shadow-sm);
+    display: block;
+    margin: 30px auto 0;
+}
+
+#proceed-to-panel:hover {
+    background-color: var(--primary-hover);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+/* Styles for the irradiance stat cards */
+.irradiance-stat-card {
+    background-color: var(--light-gray);
+    padding: 20px;
+    border-radius: var(--radius-sm);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.irradiance-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
+}
+
+.irradiance-stat-card.wide {
+    grid-column: 1 / -1;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+}
+
+.stat-description {
+    font-size: 14px;
+    color: var(--medium-gray);
+    margin: 0;
+}
