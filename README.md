@@ -1,16 +1,14 @@
-## Hi there 👋
+## Hi there, Welcome to My GitHub 👋
 
-<!--
-**saricmilos/saricmilos** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+I’m a **Data Scientist** specializing in **neural networks**, and I’m also a **Power Systems Engineer** with a **Master’s degree from UPC Barcelona, ETSEIB**.  
 
-Here are some ideas to get you started:
+Here you’ll find my projects, Jupyter notebooks, and tutorials related to machine learning, data science, and engineering applications.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+---
+
+## 🌐 Connect & Explore
+- **Website:** [saricmilos.com](https://saricmilos.com/)  
+- **YouTube (English):** [Real Skills Over Degrees](https://www.youtube.com/@realskillsoverdegrees)  
+- **YouTube (Serbian):** [Real Skills Over Degrees Serbia](https://www.youtube.com/@saricmilos)  
+
+Check out tutorials, demos, and practical notebooks to follow along with my videos.
