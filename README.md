@@ -9,6 +9,6 @@ Here you’ll find my projects, Jupyter notebooks, and tutorials related to mach
 ## 🌐 Connect & Explore
 - **Website:** [saricmilos.com](https://saricmilos.com/)  
 - **YouTube (English):** [Real Skills Over Degrees](https://www.youtube.com/@realskillsoverdegrees)  
-- **YouTube (Serbian):** [Real Skills Over Degrees Serbia](https://www.youtube.com/@realskilloverdegree)  
+- **YouTube (Serbian):** [Real Skills Over Degrees Serbia](https://www.youtube.com/@saricmilos)  
 
 Check out tutorials, demos, and practical notebooks to follow along with my videos.
