@@ -1,6 +1,8 @@
 ## Hi there, I'm Milos 👋
 
-I’m a **Data Scientist** specializing in **neural networks**. I grew up in Serbia wandering the slopes of Ovčar and Kablar and mountains, exploring their quiet monasteries and hidden caves. Those mountains shaped the way I see the world.  
+I’m a **Data Scientist** specializing in **neural networks**. I grew up in Serbia wandering the slopes of Ovčar and Kablar mountains, exploring quiet monasteries and hidden caves. Those mountains shaped the way I see the world.
+
+I'm best reached via email. I'm always open to interesting conversations and collaboration.
 
 Here you’ll find my projects, Jupyter notebooks, and tutorials related to machine learning, data science, and engineering applications.
 
