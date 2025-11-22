@@ -1,6 +1,6 @@
-## Hi there, Welcome to My GitHub 👋
+## Hi there, I'm Milos 👋
 
-I’m a **Data Scientist** specializing in **neural networks**, and I’m also a **Power Systems Engineer** with a **Master’s degree from UPC Barcelona, ETSEIB**.  
+I’m a **Data Scientist** specializing in **neural networks**. I grew up in Serbia wandering the slopes of Ovčar and Kablar and mountains, exploring their quiet monasteries and hidden caves. Those mountains shaped the way I see the world.  
 
 Here you’ll find my projects, Jupyter notebooks, and tutorials related to machine learning, data science, and engineering applications.
 
