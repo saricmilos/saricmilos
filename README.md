@@ -1,6 +1,8 @@
 ## Hi there, I'm Milos 👋
 
-I’m a **Data Scientist** specializing in **neural networks**. I grew up in Serbia wandering the slopes of Ovčar and Kablar mountains, exploring quiet monasteries and hidden caves. Those mountains shaped the way I see the world.
+I’m a **AI/ML Engineer** and a **Data Scientist** currently developing in **Retrieval-Augmented Generation (RAG)**. Generative AI can be a useful tool for engineers, but like any tool should be used with critical thinking and good judgement.
+
+I grew up in Serbia wandering the slopes of Ovčar and Kablar mountains, exploring quiet monasteries and hidden caves. Those mountains shaped the way I see the world.
 
 🚀 I'm currently doing research on AI, neural networks, and storytelling.  
 🧰 I build useful tools for everyone to enjoy!  
