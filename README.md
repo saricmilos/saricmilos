@@ -1,6 +1,6 @@
 ## Hi there, I'm Milos 👋
 
-I’m a **AI/ML Engineer** and a **Data Scientist** currently developing in **Retrieval-Augmented Generation (RAG)**. Generative AI can be a useful tool for engineers, but like any tool should be used with critical thinking and good judgement. However, AI assistance must be paired with meaningful human intervention, judgement, and contextual understanding. With great tools comes great responsibility.
+I’m a **AI/ML Engineer** and a **Data Scientist** currently developing **Retrieval-Augmented Generation (RAG)** systems. Generative AI can be a useful tool for engineers, but like any tool should be used with critical thinking and good judgement. However, AI assistance must be paired with meaningful human intervention, judgement, and contextual understanding. With great tools comes great responsibility.
 
 I grew up in Serbia wandering the slopes of Ovčar and Kablar mountains, exploring quiet monasteries and hidden caves. Those mountains shaped the way I see the world.
 
