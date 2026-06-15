@@ -11,7 +11,7 @@ I grew up in Serbia wandering the slopes of Ovčar and Kablar mountains, explori
 🎓 I studied Machine Learning and Power Systems Engineering at FTN NS and ETSEIB BCN, which shaped many of my thoughts on teaching and learning.  
 🌍 Fun fact: In my third year of university, I went to Barcelona for a 3-day vacation… which turned into a year-long trip around the world and eventually led me to move to Barcelona — and that’s why I'm here now.
 
-I'm best reached via email at saricmilos@cassiopeiai.com. I'm always open to interesting conversations and collaborations.
+I'm best reached via email at milossaric@outlook.com. I'm always open to interesting conversations and collaborations.
 
 Here you’ll find my projects, Jupyter notebooks, and tutorials related to machine learning, data science, and engineering applications.
 
@@ -19,6 +19,3 @@ Here you’ll find my projects, Jupyter notebooks, and tutorials related to mach
 
 ## 🌐 Connect & Explore
 - **Website:** [saricmilos.com](https://cassiopeiai.com/)  
-- **YouTube (Serbian):** [Saric Milos](https://www.youtube.com/@saricmilos)  
-
-Check out tutorials, demos, and practical notebooks to follow along with my videos.
