@@ -1,21 +1,13 @@
-## Hi there, I'm Milos 👋
+**Data scientist. I build search and recommendations people can play with, and I measure whether they work.**
 
-I’m a **AI/ML Engineer** and a **Data Scientist** currently developing **Retrieval-Augmented Generation (RAG)** systems. Generative AI can be a useful tool for engineers, but like any tool should be used with critical thinking and good judgement. However, AI assistance must be paired with meaningful human intervention, judgement, and contextual understanding. With great tools comes great responsibility.
+MSc from UPC Barcelona (ETSEIB), based in Serbia. Every project below has a live demo to try.
 
-I grew up in Serbia wandering the slopes of Ovčar and Kablar mountains, exploring quiet monasteries and hidden caves. Those mountains shaped the way I see the world.
+### Projects
 
-🚀 I'm currently doing research on AI, neural networks, and storytelling.  
-🧰 I build useful tools for everyone to enjoy!  
-📚 I write a lot — you can explore my projects and stories on my website: [saricmilos.com](https://cassiopeiai.com/)  
-🎥 I create YouTube content and try to inspire the world with positive ideas.  
-🎓 I studied Machine Learning and Power Systems Engineering at FTN NS and ETSEIB BCN, which shaped many of my thoughts on teaching and learning.  
-🌍 Fun fact: In my third year of university, I went to Barcelona for a 3-day vacation… which turned into a year-long trip around the world and eventually led me to move to Barcelona — and that’s why I'm here now.
+- **SEC filings assistant**: ask about ten companies' 10-K and 10-Q reports and get the answer with the passage it came from, measured on 223 questions with known answers. [Try it](https://www.saricmilos.com/projects/sec-filings-rag) · [Code](https://github.com/saricmilos/RAG-Langchain)
+- **Book recommender**: name a book you liked and get ten more, learned from 1.1 million Book-Crossing interactions. It finds one of a reader's own books for 48 readers in 100. [Try it](https://www.saricmilos.com/projects/book-recommender) · [Code](https://github.com/saricmilos/book-recommender)
+- **State estimation, my master's thesis**: a power grid's voltage everywhere from a few meters, with a graph neural network against classical WLS, and the feeder to play with. [Try it](https://www.saricmilos.com/projects/state-estimation) · [Code](https://github.com/saricmilos/state-estimation-GNN-PINN)
 
-I'm best reached via email at milossaric@outlook.com. I'm always open to interesting conversations and collaborations.
+Also: [MateMAGIJA](https://matemagija.com/), maths and physics for primary-school children in Serbia, ten courses whose lessons play like a game.
 
-Here you’ll find my projects, Jupyter notebooks, and tutorials related to machine learning, data science, and engineering applications.
-
----
-
-## 🌐 Connect & Explore
-- **Website:** [saricmilos.com](https://cassiopeiai.com/)  
+[saricmilos.com](https://www.saricmilos.com) · [LinkedIn](https://www.linkedin.com/in/saricmilos/) · milossaric@outlook.com
